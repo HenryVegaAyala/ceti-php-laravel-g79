@@ -1,0 +1,21 @@
+name: "php"
+
+services:
+  api:
+    container_name: "api"
+    hostname: "api"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - .:/var/www
+    networks:
+      api_network:
+
+networks:
+  api_network:
+    driver: bridge
+
+#volumes:
+#    api_data:
